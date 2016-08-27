@@ -1,7 +1,7 @@
 # A Waterfall Plugin
 
 [演示DEMO](http://xiaoxiao.work/waterfall/dist/)
-![](http://77fzek.com1.z0.glb.clouddn.com/GIF.gif)
+
 ### 如何使用
 下载后
 
