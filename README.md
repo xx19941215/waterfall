@@ -53,7 +53,7 @@ $.waterfall.render(data);//使用数据完成瀑布流的布局
       waterfallWidth:1180,
       itemWidth:220,
       itemBg:"#FFFFFF",
-      waterfallBg:"#F0EFED"
+      waterfallBg:"#F0EFED"，
     });
     
 ```
