@@ -41,10 +41,10 @@ $waterfall.init({
     })
     //这里有四个配置参数，需要修改的话可以自定义，不需要修改的话传入默认值就好
     $.waterfall.init({
-      waterfallWidth:1180,
-      itemWidth:220,
-      itemBg:"#FFFFFF",
-      waterfallBg:"#F0EFED"
+       waterfallWidth:1180,
+       itemWidth:220,
+       itemBg:"#FFFFFF",
+       waterfallBg:"#F0EFED"
     });
     
 ```
