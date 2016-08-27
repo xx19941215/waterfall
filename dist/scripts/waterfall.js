@@ -7,13 +7,20 @@ var waterfall = (function ($) {
     data = [],
     bottomHandler = null,
     $ct = $(".waterfall"),
-    options = {};
+     ctWidth = $ct.width(),
+    options = {},
+    itemWidth = 0;
   function init(opts) {
     if(opts){
       //如果设置选项
       options = opts;
-      options.waterfallWidth && $ct.css("width",options.waterfallWidth);
       options.waterfallBg && $ct.css("background",options.waterfallBg);
+      //计算每个col的宽度
+      if(options.colNum && options.margin){
+        itemWidth = Math.floor((ctWidth - (options.colNum - 1) * options.margin)/options.colNum);
+      } 
+      options.margin = opts.margin;
+      
     }
     //绑定事件
     bind();
@@ -69,16 +76,14 @@ var waterfall = (function ($) {
   }
   function layout(){
 
-    var winWidth = $ct.width(),
-      $itemList = $ct.find(".item"),
-    itemWidth = $itemList.outerWidth(true),
-    colNum = Math.floor(winWidth / itemWidth);
+    var $itemList = $ct.find(".item"),
+    colNum = options.colNum,
+    margin = options.margin;    
     console.log(colNum);
-    
     //修改绝对定位坐标重新排列
     $itemList.each(function (index, ele) {
-      var itemHeight = $(ele).outerHeight(true) + 10;
-      var margin = (winWidth-colNum*itemWidth)/(colNum-1);
+      var itemHeight = $(ele).outerHeight(true) + margin;
+      
       //第一排的情况
       if (index < colNum) {
 
@@ -150,7 +155,7 @@ var waterfall = (function ($) {
     var html = "";
 
     data.forEach(function (item, index) {
-      html += '<div class="item new" style="width:'+options.itemWidth+'px;background:'+options.itemBg+'"><a href="' + item.url + '"><img src="' + item.image_url + '" alt=""></a><p>' + item.title + '</p></div>'
+      html += '<div class="item new" style="width:'+itemWidth+'px;background:'+options.itemBg+'"><a href="' + item.url + '"><img src="' + item.image_url + '" alt=""></a><p>' + item.title + '</p></div>'
     });
 
     $ct.append($(html));
