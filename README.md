@@ -1,7 +1,7 @@
 # A Waterfall Plugin
-```
-演示 [DEMO](http://http://xiaoxiao.work/waterfall/dist/)
-```
+
+[演示DEMO](http://http://xiaoxiao.work/waterfall/dist/)
+
 ### 如何使用
 下载后
 
