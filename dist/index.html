@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+  <link rel="stylesheet" href="styles/waterfall.min.css">
+</head>
+<body>
+<div class="waterfall"></div>
+<script src="../node_modules/jquery/dist/jquery.min.js"></script>
+<script src="scripts/waterfall.js"></script>
+<script>
+  ;(function(){
+    //mock数据
+   function mockData(){
+     var data = [1,2,3,4,5,6,7];
+     function getRandom(){
+       return Math.floor(Math.random()*7+1);
+     }
+     data.forEach(function(item,index){
+       data[index] = {
+         image_url : "images/"+getRandom()+".jpg",
+         url:"#",
+         title:"一会儿吃什么？"
+       };
+     })
+     return data;
+   }
+
+
+    $.waterfall.toBottom(function(){
+      //mock数据
+      // var data = mockData();
+      // $.waterfall.render(data);
+      //真实数据
+      //真实数据需要异步加载
+     $.get("http://115.28.219.57/news/news.php").done(function(data){
+       console.log(data);
+       if(data.retData){
+         $.waterfall.render(data.retData);
+       }
+     })
+    })
+    //这里有四个配置参数，需要修改的话可以自定义，不需要修改的话传入默认值就好
+    $.waterfall.init({
+      waterfallWidth:1180,
+      itemWidth:220,
+      itemBg:"#FFFFFF",
+      waterfallBg:"#F0EFED"
+    });
+
+  })();
+</script>
+</body>
+</html>
