@@ -41,7 +41,7 @@ $.waterfall.render(data);//使用数据完成瀑布流的布局
       // var data = mockData();
       // $.waterfall.render(data);
       //真实数据
-      //真实数据需要异步加载
+      //真实数据需要异步加载,image_url为空的话会添加一张默认图片
      $.get("http://115.28.219.57/news/news.php").done(function(data){
        if(data.retData){
          $.waterfall.render(data.retData);
@@ -55,5 +55,20 @@ $.waterfall.render(data);//使用数据完成瀑布流的布局
         itemBg:"#FFFFFF",
         waterfallBg:"#F0EFED"
     });
-    
+   //备注：数据格式
+   数据格式:
+   [{
+         image_url : "images/"+getRandom()+".jpg",
+         url:"#",
+         title:"一会儿吃什么？"
+      },
+      数据格式:
+      {
+          image_url : "images/"+getRandom()+".jpg",
+          url:"#",
+          title:"一会儿吃什么？"
+      },
+      ...
+
+      ]
 ```
