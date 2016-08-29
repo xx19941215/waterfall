@@ -56,13 +56,11 @@ $.waterfall.render(data);//使用数据完成瀑布流的布局
         waterfallBg:"#F0EFED"
     });
    //备注：数据格式
-   数据格式:
    [{
          image_url : "images/"+getRandom()+".jpg",
          url:"#",
          title:"一会儿吃什么？"
       },
-      数据格式:
       {
           image_url : "images/"+getRandom()+".jpg",
           url:"#",
