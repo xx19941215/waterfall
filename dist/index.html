@@ -30,16 +30,16 @@
 
     $.waterfall.toBottom(function(){
       //mock数据
-      // var data = mockData();
-      // $.waterfall.render(data);
+      var data = mockData();
+      $.waterfall.render(data);
       //真实数据
       //真实数据需要异步加载
-     $.get("http://115.28.219.57/news/news.php").done(function(data){
-       console.log(data);
-       if(data.retData){
-         $.waterfall.render(data.retData);
-       }
-     })
+       // $.get("http://115.28.219.57/news/news.php").done(function(data){
+       //   console.log(data);
+       //   if(data.retData){
+       //     $.waterfall.render(data.retData);
+       //   }
+       // })
     })
     //这里有四个配置参数，需要修改的话可以自定义，不需要修改的话传入默认值就好
     $.waterfall.init({
